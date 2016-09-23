@@ -11,7 +11,7 @@ int main(){
 	int array[10];
 	
 	counter = 0;
-	size = 11;
+	size = 10;
 	
 	p_array = malloc(sizeof(int)*size);
 	
@@ -21,18 +21,17 @@ int main(){
 	
 	while (number != 0) 
 	{
-		if (size > counter) {
-			p_array[counter++] = number;
-		} 
-		else {
+		if (counter == size) {
 			size *= 2;
-			p_array  = realloc(p_array, sizeof(int)*(size++));
+			p_array  = realloc(p_array, sizeof(int) * size);
 			if (p_array == NULL) {
 				printf("Can't allocate memory\n");
 		  		return -1;
 			}
-		}
-		
+		} 
+
+		p_array[counter++] = number;
+			
 		scanf("%d", &number);
 	}
 	
@@ -64,6 +63,8 @@ void sort(int *array, int counter){
 	}
 	
 	printf("\n");
+
+	printf("The length of array is %d: \n", counter);
 	
 	free(array);
 }
