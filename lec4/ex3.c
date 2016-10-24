@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void sort(int *array, int counter);
+int* sort(int *array, int counter);
 
 int main(){
 	int number, counter, size;
@@ -33,12 +33,24 @@ int main(){
 		scanf("%d", &number);
 	}
 	
-	sort(p_array, counter);
+	p_array = sort(p_array, counter);
+	
+	printf("The sorted array is:\n");
+	
+	for(int i = 0; i < counter; i++) {
+		printf("%d ", p_array[i]);
+	}
+	
+	printf("\n");
+
+	printf("The length of array is %d: \n", counter);
+	
+	free(p_array);
 	
 	return 0;
 }
 
-void sort(int *array, int counter){
+int* sort(int *array, int counter){
 	int swap;
 	
 	for (int c = 0 ; c < ( counter - 1 ); c++)
@@ -60,15 +72,5 @@ void sort(int *array, int counter){
 		}
 	  }
 
-	printf("The sorted array is:\n");
-	
-	for(int i = 0; i < counter; i++) {
-		printf("%d ", array[i]);
-	}
-	
-	printf("\n");
-
-	printf("The length of array is %d: \n", counter);
-	
-	free(array);
+	return array;
 }
