@@ -8,8 +8,6 @@ int main(){
 	
 	int *p_array;
 	
-	int array[10];
-	
 	counter = 0;
 	size = 11;
 	
@@ -46,6 +44,7 @@ void sort(int *array, int counter){
 	
 	for (int c = 0 ; c < ( counter - 1 ); c++)
 	  {
+	  	int swapped = 0;
 		for (int d = 0 ; d < counter - c - 1; d++)
 		{
 		  if (array[d] > array[d+1]) /* For decreasing order use < */
@@ -53,7 +52,12 @@ void sort(int *array, int counter){
 		    swap       = array[d];
 		    array[d]   = array[d+1];
 		    array[d+1] = swap;
+		    swapped = 1;
 		  }
+		}
+		if(swapped == 0)
+		{
+			break;
 		}
 	  }
 
