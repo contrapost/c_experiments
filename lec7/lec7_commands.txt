@@ -1,0 +1,6 @@
+gcc -Wall -Wextra -std=c11 employeeMain.c employee.c -o employee
+
+touch file_name.c (create file)
+open file_name.c (open file)
+
+gcc -Wall -Wextra -std=c11 employeeMain.c employee.c -o employee -lm (extra library m that is in the usr/lib)
